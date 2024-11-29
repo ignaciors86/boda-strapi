@@ -1,16 +1,16 @@
-# Usa una imagen de Node.js compatible
+# Usa una imagen base compatible con módulos nativos
 FROM node:18-alpine
 
-# Instala herramientas del sistema para construir módulos nativos
+# Instala herramientas esenciales para compilar módulos nativos
 RUN apk add --no-cache libc6-compat python3 make g++ bash
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia solo los archivos necesarios para instalar dependencias
+# Copia los archivos de configuración
 COPY package.json package-lock.json ./
 
-# Instala TODAS las dependencias (incluye devDependencies porque 'build' puede necesitarlas)
+# Instala TODAS las dependencias necesarias para la compilación
 RUN npm install
 
 # Copia el resto de los archivos
@@ -19,11 +19,11 @@ COPY . .
 # Construye la aplicación
 RUN npm run build
 
-# Limpia dependencias innecesarias después del build
+# Limpia dependencias innecesarias para producción
 RUN npm prune --production
 
-# Expone el puerto que utiliza Strapi
+# Expone el puerto de Strapi
 EXPOSE 1337
 
-# Comando para iniciar Strapi
+# Comando para iniciar la aplicación
 CMD ["npm", "start"]
