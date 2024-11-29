@@ -4,11 +4,9 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "postinstall": "npm rebuild @swc/core esbuild --no-save"
+    "develop": "strapi develop",
+    "start": "strapi start"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.4.2",
