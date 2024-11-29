@@ -1,27 +1,29 @@
-# Usa una imagen base de Node.js compatible
+# Usa una imagen compatible
 FROM node:18-alpine
+
+# Instala dependencias básicas del sistema
+RUN apk add --no-cache libc6-compat python3 make g++
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia solo los archivos necesarios para instalar dependencias
-COPY package.json package-lock.json ./
+# Copia los archivos necesarios
+COPY package*.json ./
 
-# Instala TODAS las dependencias (incluye devDependencies porque `build` puede requerirlas)
+# Instala TODAS las dependencias (incluye devDependencies)
 RUN npm install
 
-# Copia el resto de los archivos de la aplicación
+# Copia el resto de los archivos
 COPY . .
 
-# Construye la aplicación (esto genera los archivos para producción)
+# Construye la aplicación
 RUN npm run build
 
-# Elimina las dependencias innecesarias para producción
+# Limpia dependencias de desarrollo
 RUN npm prune --production
 
-# Expone el puerto que utiliza Strapi
+# Expone el puerto de Strapi
 EXPOSE 1337
 
 # Comando para iniciar Strapi
 CMD ["npm", "start"]
-
