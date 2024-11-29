@@ -8,10 +8,10 @@ export default ({ env }) => {
       connection: {
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'neondb'),
-        user: env('DATABASE_USERNAME', 'neondb_owner'),
-        password: env('DATABASE_PASSWORD', 'xYViHwT5MtI1'),
-        ssl: env.bool('DATABASE_SSL', true) && {
+        database: env('DATABASE_NAME', 'strapi'),
+        user: env('DATABASE_USERNAME', 'strapi'),
+        password: env('DATABASE_PASSWORD', 'strapi'),
+        ssl: env.bool('DATABASE_SSL', false) && {
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),
           ca: env('DATABASE_SSL_CA', undefined),
@@ -25,12 +25,12 @@ export default ({ env }) => {
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
+        host: env('DATABASE_HOST', 'ep-quiet-queen-a2lvtn4h-pooler.eu-central-1.aws.neon.tech'),
+        // port: env.int('DATABASE_PORT', 5432),
+        database: env('DATABASE_NAME', 'neondb'),
+        user: env('DATABASE_USERNAME', 'neondb_owner'),
+        password: env('DATABASE_PASSWORD', 'rPU2AB4hYWNa'),
+        ssl: env.bool('DATABASE_SSL', true) && {
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),
           ca: env('DATABASE_SSL_CA', undefined),
