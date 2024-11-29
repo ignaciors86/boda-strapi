@@ -1,17 +1,23 @@
-FROM node:18
+# Usa una imagen base de Node.js
+FROM node:18-alpine
 
+# Establece el directorio de trabajo
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+# Copia el package.json y el package-lock.json
+COPY package*.json ./
 
-RUN npm install
+# Instala las dependencias de producción
+RUN npm install --production
 
+# Copia el resto de los archivos de la aplicación
 COPY . .
 
+# Construye la aplicación
 RUN npm run build
 
-RUN npm prune --production
-
+# Expone el puerto que utiliza Strapi
 EXPOSE 1337
 
+# Comando para iniciar Strapi
 CMD ["npm", "start"]
