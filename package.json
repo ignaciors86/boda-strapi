@@ -9,7 +9,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "postinstall": "if [ \"$(uname -m)\" = \"x86_64\" ]; then npm install esbuild-linux-64 --no-save; fi"
+    "postinstall": "npm install esbuild-linux-64 --no-save"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.4.2",
