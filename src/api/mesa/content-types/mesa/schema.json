@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mesas",
+  "info": {
+    "singularName": "mesa",
+    "pluralName": "mesas",
+    "displayName": "Mesas",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "invitados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invitado.invitado"
+    }
+  }
+}

@@ -406,6 +406,33 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
+  collectionName: 'mesas';
+  info: {
+    description: '';
+    displayName: 'Mesas';
+    pluralName: 'mesas';
+    singularName: 'mesa';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::mesa.mesa'> &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -916,6 +943,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::invitado.invitado': ApiInvitadoInvitado;
+      'api::mesa.mesa': ApiMesaMesa;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
