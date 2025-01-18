@@ -29,6 +29,12 @@
       "relation": "manyToOne",
       "target": "api::mesa.mesa",
       "inversedBy": "invitados"
+    },
+    "grupo_origen": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grupo-origen.grupo-origen",
+      "inversedBy": "invitados"
     }
   }
 }

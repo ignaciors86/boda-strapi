@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grupo_origens",
+  "info": {
+    "singularName": "grupo-origen",
+    "pluralName": "grupo-origens",
+    "displayName": "Grupo Origen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "invitados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invitado.invitado",
+      "mappedBy": "grupo_origen"
+    }
+  }
+}

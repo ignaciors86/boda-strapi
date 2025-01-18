@@ -369,6 +369,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGrupoOrigenGrupoOrigen extends Struct.CollectionTypeSchema {
+  collectionName: 'grupo_origens';
+  info: {
+    description: '';
+    displayName: 'Grupo Origen';
+    pluralName: 'grupo-origens';
+    singularName: 'grupo-origen';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::grupo-origen.grupo-origen'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
   collectionName: 'invitados';
   info: {
@@ -389,6 +419,10 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    grupo_origen: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::grupo-origen.grupo-origen'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -944,6 +978,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::grupo-origen.grupo-origen': ApiGrupoOrigenGrupoOrigen;
       'api::invitado.invitado': ApiInvitadoInvitado;
       'api::mesa.mesa': ApiMesaMesa;
       'plugin::content-releases.release': PluginContentReleasesRelease;
