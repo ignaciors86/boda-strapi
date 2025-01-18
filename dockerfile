@@ -17,7 +17,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # Construye el proyecto Strapi
-RUN npm run build
+RUN npm run build --loglevel verbose
 
 # Etapa 2: Producción
 FROM node:18-alpine
