@@ -1,48 +1,29 @@
-# Etapa 1: Construcción
-FROM node:18-alpine AS builder
+# Usa una imagen base de Node.js
+FROM node:18-alpine
 
-# Instalar herramientas necesarias para dependencias nativas
+# Instala herramientas del sistema necesarias para compilar módulos nativos
 RUN apk add --no-cache libc6-compat python3 make g++ bash
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia solo los archivos necesarios para instalar dependencias
+# Copia los archivos necesarios para instalar dependencias
 COPY package.json package-lock.json ./
 
 # Instala TODAS las dependencias (incluye devDependencies)
-RUN npm install --legacy-peer-deps
+RUN npm install
 
-# Copia el resto del código fuente
+# Copia el resto de los archivos del proyecto
 COPY . .
 
-# Construye el proyecto Strapi
-RUN npm run build --loglevel verbose
+# Construye el panel de administración
+RUN npm run build
 
-# Etapa 2: Producción
-FROM node:18-alpine
+# Elimina dependencias innecesarias para producción
+RUN npm prune --production
 
-# Establece el directorio de trabajo
-WORKDIR /app
-
-# Instalar dependencias necesarias para producción
-COPY package.json package-lock.json ./
-RUN npm install --production --legacy-peer-deps
-
-# Copiar archivos construidos desde la etapa de construcción
-COPY --from=builder /app/build ./build
-
-# Copiar configuraciones y otros archivos necesarios
-COPY ./public ./public
-COPY ./config ./config
-COPY ./src ./src
-
-# Establece las variables de entorno predeterminadas para producción
-ENV NODE_ENV=production
-ENV DATABASE_URL=ep-quiet-queen-a2lvtn4h-pooler.eu-central-1.aws.neon.tech
-
-# Expone el puerto utilizado por Strapi
+# Expone el puerto que utiliza Strapi
 EXPOSE 1337
 
-# Comando para iniciar la aplicación Strapi
+# Comando para iniciar Strapi
 CMD ["npm", "start"]
