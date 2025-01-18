@@ -10,7 +10,7 @@ WORKDIR /app
 # Copia los archivos necesarios para instalar dependencias
 COPY package.json package-lock.json ./
 
-# Instala TODAS las dependencias (incluye devDependencies)
+# Instala TODAS las dependencias (incluye devDependencies) usando --legacy-peer-deps
 RUN npm install --legacy-peer-deps
 
 # Copia el archivo .env al contenedor para la configuración de Strapi
