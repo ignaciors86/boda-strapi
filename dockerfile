@@ -39,6 +39,7 @@ COPY ./src ./src
 
 # Establece las variables de entorno predeterminadas para producción
 ENV NODE_ENV=production
+ENV DATABASE_URL=ep-quiet-queen-a2lvtn4h-pooler.eu-central-1.aws.neon.tech
 
 # Expone el puerto utilizado por Strapi
 EXPOSE 1337
