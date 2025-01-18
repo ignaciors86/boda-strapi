@@ -18,7 +18,8 @@
     "invitados": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::invitado.invitado"
+      "target": "api::invitado.invitado",
+      "mappedBy": "mesa"
     }
   }
 }

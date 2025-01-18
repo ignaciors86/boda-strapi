@@ -4,7 +4,8 @@
   "info": {
     "singularName": "invitado",
     "pluralName": "invitados",
-    "displayName": "Invitados"
+    "displayName": "Invitados",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
         }
       },
       "type": "string"
+    },
+    "mesa": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mesa.mesa",
+      "inversedBy": "invitados"
     }
   }
 }

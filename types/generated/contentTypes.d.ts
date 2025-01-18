@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
   collectionName: 'invitados';
   info: {
+    description: '';
     displayName: 'Invitados';
     pluralName: 'invitados';
     singularName: 'invitado';
@@ -393,6 +394,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::invitado.invitado'
     >;
+    mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
