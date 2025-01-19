@@ -412,6 +412,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
   };
   attributes: {
     alergias: Schema.Attribute.Text;
+    alojamiento: Schema.Attribute.Boolean;
     asistira: Schema.Attribute.Boolean &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<false>;
@@ -427,6 +428,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::grupo-origen.grupo-origen'
     >;
+    hijos: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -434,8 +436,13 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'api::invitado.invitado'
     > &
       Schema.Attribute.Private;
+    menu: Schema.Attribute.Enumeration<
+      ['normal', 'vegano', 'vegetariano', 'al\u00E9rgico a los frutos secos']
+    > &
+      Schema.Attribute.DefaultTo<'normal'>;
     mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String;
+    padres: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     pareja: Schema.Attribute.Relation<'oneToOne', 'api::invitado.invitado'>;
     personaje: Schema.Attribute.Relation<
       'manyToOne',
@@ -447,6 +454,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    weedding: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 

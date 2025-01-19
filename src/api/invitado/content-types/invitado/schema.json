@@ -76,6 +76,33 @@
     },
     "dedicatoria": {
       "type": "text"
+    },
+    "alojamiento": {
+      "type": "boolean"
+    },
+    "menu": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "vegano",
+        "vegetariano",
+        "alérgico a los frutos secos"
+      ],
+      "default": "normal"
+    },
+    "weedding": {
+      "type": "boolean",
+      "default": false
+    },
+    "padres": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invitado.invitado"
+    },
+    "hijos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invitado.invitado"
     }
   }
 }
