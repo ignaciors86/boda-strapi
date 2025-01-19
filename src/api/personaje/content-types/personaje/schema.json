@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "grupo_origens",
+  "collectionName": "personajes",
   "info": {
-    "singularName": "grupo-origen",
-    "pluralName": "grupo-origens",
-    "displayName": "Grupo Origen",
+    "singularName": "personaje",
+    "pluralName": "personajes",
+    "displayName": "Personajes",
     "description": ""
   },
   "options": {
@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invitado.invitado",
-      "mappedBy": "grupo_origen"
+      "mappedBy": "personaje"
     }
   }
 }

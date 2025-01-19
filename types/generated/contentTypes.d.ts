@@ -378,7 +378,7 @@ export interface ApiGrupoOrigenGrupoOrigen extends Struct.CollectionTypeSchema {
     singularName: 'grupo-origen';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -408,14 +408,12 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     singularName: 'invitado';
   };
   options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
+    draftAndPublish: false;
   };
   attributes: {
+    asistira: Schema.Attribute.Boolean &
+      Schema.Attribute.Private &
+      Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -423,18 +421,19 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::grupo-origen.grupo-origen'
     >;
-    locale: Schema.Attribute.String;
+    imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::invitado.invitado'
-    >;
+    > &
+      Schema.Attribute.Private;
     mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
-    nombre: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    nombre: Schema.Attribute.String;
+    personaje: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::personaje.personaje'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -451,7 +450,7 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     singularName: 'mesa';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -460,6 +459,36 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::mesa.mesa'> &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPersonajePersonaje extends Struct.CollectionTypeSchema {
+  collectionName: 'personajes';
+  info: {
+    description: '';
+    displayName: 'Personajes';
+    pluralName: 'personajes';
+    singularName: 'personaje';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::personaje.personaje'
+    > &
       Schema.Attribute.Private;
     nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -981,6 +1010,7 @@ declare module '@strapi/strapi' {
       'api::grupo-origen.grupo-origen': ApiGrupoOrigenGrupoOrigen;
       'api::invitado.invitado': ApiInvitadoInvitado;
       'api::mesa.mesa': ApiMesaMesa;
+      'api::personaje.personaje': ApiPersonajePersonaje;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -8,20 +8,12 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "nombre": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "string"
     },
     "mesa": {
@@ -34,6 +26,30 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::grupo-origen.grupo-origen",
+      "inversedBy": "invitados"
+    },
+    "asistira": {
+      "pluginOptions": {},
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {}
+    },
+    "personaje": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::personaje.personaje",
       "inversedBy": "invitados"
     }
   }
