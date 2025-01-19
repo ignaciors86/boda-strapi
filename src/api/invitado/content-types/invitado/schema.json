@@ -51,6 +51,11 @@
       "relation": "manyToOne",
       "target": "api::personaje.personaje",
       "inversedBy": "invitados"
+    },
+    "pareja": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invitado.invitado"
     }
   }
 }

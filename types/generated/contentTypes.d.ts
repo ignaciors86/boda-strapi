@@ -430,6 +430,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String;
+    pareja: Schema.Attribute.Relation<'oneToOne', 'api::invitado.invitado'>;
     personaje: Schema.Attribute.Relation<
       'manyToOne',
       'api::personaje.personaje'
