@@ -26,7 +26,6 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::grupo-origen.grupo-origen",
-      "private": true,
       "inversedBy": "invitados"
     },
     "asistira": {
