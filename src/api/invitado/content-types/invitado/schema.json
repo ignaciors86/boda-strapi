@@ -56,6 +56,26 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::invitado.invitado"
+    },
+    "preboda": {
+      "type": "boolean"
+    },
+    "postboda": {
+      "type": "boolean"
+    },
+    "autobus": {
+      "type": "boolean"
+    },
+    "alergias": {
+      "type": "text"
+    },
+    "espiga": {
+      "type": "integer",
+      "default": 0,
+      "private": true
+    },
+    "dedicatoria": {
+      "type": "text"
     }
   }
 }

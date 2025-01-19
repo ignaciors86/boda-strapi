@@ -411,12 +411,18 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    alergias: Schema.Attribute.Text;
     asistira: Schema.Attribute.Boolean &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<false>;
+    autobus: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dedicatoria: Schema.Attribute.Text;
+    espiga: Schema.Attribute.Integer &
+      Schema.Attribute.Private &
+      Schema.Attribute.DefaultTo<0>;
     grupo_origen: Schema.Attribute.Relation<
       'manyToOne',
       'api::grupo-origen.grupo-origen'
@@ -435,6 +441,8 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::personaje.personaje'
     >;
+    postboda: Schema.Attribute.Boolean;
+    preboda: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
