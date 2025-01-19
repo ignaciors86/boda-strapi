@@ -411,12 +411,12 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    alergias: Schema.Attribute.Text;
-    alojamiento: Schema.Attribute.Boolean;
+    alergias: Schema.Attribute.Text & Schema.Attribute.Private;
+    alojamiento: Schema.Attribute.Boolean & Schema.Attribute.Private;
     asistira: Schema.Attribute.Boolean &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<false>;
-    autobus: Schema.Attribute.Boolean;
+    autobus: Schema.Attribute.Boolean & Schema.Attribute.Private;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -427,8 +427,10 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     grupo_origen: Schema.Attribute.Relation<
       'manyToOne',
       'api::grupo-origen.grupo-origen'
-    >;
-    hijos: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
+    > &
+      Schema.Attribute.Private;
+    hijos: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'> &
+      Schema.Attribute.Private;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -439,22 +441,27 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     menu: Schema.Attribute.Enumeration<
       ['normal', 'vegano', 'vegetariano', 'al\u00E9rgico a los frutos secos']
     > &
+      Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'normal'>;
     mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String;
-    padres: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
-    pareja: Schema.Attribute.Relation<'oneToOne', 'api::invitado.invitado'>;
+    padres: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'> &
+      Schema.Attribute.Private;
+    pareja: Schema.Attribute.Relation<'oneToOne', 'api::invitado.invitado'> &
+      Schema.Attribute.Private;
     personaje: Schema.Attribute.Relation<
       'manyToOne',
       'api::personaje.personaje'
     >;
-    postboda: Schema.Attribute.Boolean;
-    preboda: Schema.Attribute.Boolean;
+    postboda: Schema.Attribute.Boolean & Schema.Attribute.Private;
+    preboda: Schema.Attribute.Boolean & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    weedding: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    weedding: Schema.Attribute.Boolean &
+      Schema.Attribute.Private &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 

@@ -26,6 +26,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::grupo-origen.grupo-origen",
+      "private": true,
       "inversedBy": "invitados"
     },
     "asistira": {
@@ -55,19 +56,24 @@
     "pareja": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::invitado.invitado"
+      "target": "api::invitado.invitado",
+      "private": true
     },
     "preboda": {
-      "type": "boolean"
+      "type": "boolean",
+      "private": true
     },
     "postboda": {
-      "type": "boolean"
+      "type": "boolean",
+      "private": true
     },
     "autobus": {
-      "type": "boolean"
+      "type": "boolean",
+      "private": true
     },
     "alergias": {
-      "type": "text"
+      "type": "text",
+      "private": true
     },
     "espiga": {
       "type": "integer",
@@ -78,7 +84,8 @@
       "type": "text"
     },
     "alojamiento": {
-      "type": "boolean"
+      "type": "boolean",
+      "private": true
     },
     "menu": {
       "type": "enumeration",
@@ -88,21 +95,25 @@
         "vegetariano",
         "alérgico a los frutos secos"
       ],
-      "default": "normal"
+      "default": "normal",
+      "private": true
     },
     "weedding": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "private": true
     },
     "padres": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::invitado.invitado"
+      "target": "api::invitado.invitado",
+      "private": true
     },
     "hijos": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::invitado.invitado"
+      "target": "api::invitado.invitado",
+      "private": true
     }
   }
 }
