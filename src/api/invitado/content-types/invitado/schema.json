@@ -99,8 +99,7 @@
     },
     "weedding": {
       "type": "boolean",
-      "default": false,
-      "private": true
+      "default": false
     },
     "padres": {
       "type": "relation",

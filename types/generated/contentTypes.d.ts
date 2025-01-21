@@ -427,8 +427,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     grupo_origen: Schema.Attribute.Relation<
       'manyToOne',
       'api::grupo-origen.grupo-origen'
-    > &
-      Schema.Attribute.Private;
+    >;
     hijos: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'> &
       Schema.Attribute.Private;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -459,9 +458,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    weedding: Schema.Attribute.Boolean &
-      Schema.Attribute.Private &
-      Schema.Attribute.DefaultTo<false>;
+    weedding: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
