@@ -475,9 +475,15 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    capitan: Schema.Attribute.Relation<'oneToOne', 'api::invitado.invitado'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    himno: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagen: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::mesa.mesa'> &

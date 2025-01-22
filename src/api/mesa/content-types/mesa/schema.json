@@ -20,6 +20,31 @@
       "relation": "oneToMany",
       "target": "api::invitado.invitado",
       "mappedBy": "mesa"
+    },
+    "himno": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "imagen": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "capitan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invitado.invitado"
     }
   }
 }
