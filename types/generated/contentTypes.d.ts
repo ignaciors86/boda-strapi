@@ -384,6 +384,7 @@ export interface ApiGrupoOrigenGrupoOrigen extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -439,7 +440,13 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     menu: Schema.Attribute.Enumeration<
-      ['normal', 'vegano', 'vegetariano', 'al\u00E9rgico a los frutos secos']
+      [
+        'normal',
+        'vegano',
+        'vegetariano',
+        'al\u00E9rgico a los frutos secos',
+        'al\u00E9rgico al marisco y/o crust\u00E1ceos',
+      ]
     > &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'normal'>;
@@ -511,6 +518,7 @@ export interface ApiPersonajePersonaje extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
