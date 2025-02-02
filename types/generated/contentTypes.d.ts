@@ -369,6 +369,44 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFacturaFactura extends Struct.CollectionTypeSchema {
+  collectionName: 'facturas';
+  info: {
+    description: '';
+    displayName: 'Facturas';
+    pluralName: 'facturas';
+    singularName: 'factura';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contacto: Schema.Attribute.String & Schema.Attribute.Private;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text & Schema.Attribute.Private;
+    factura: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::factura.factura'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Private;
+    Prepago: Schema.Attribute.Decimal & Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Total: Schema.Attribute.Decimal & Schema.Attribute.Private;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGrupoOrigenGrupoOrigen extends Struct.CollectionTypeSchema {
   collectionName: 'grupo_origens';
   info: {
@@ -1044,6 +1082,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::factura.factura': ApiFacturaFactura;
       'api::grupo-origen.grupo-origen': ApiGrupoOrigenGrupoOrigen;
       'api::invitado.invitado': ApiInvitadoInvitado;
       'api::mesa.mesa': ApiMesaMesa;

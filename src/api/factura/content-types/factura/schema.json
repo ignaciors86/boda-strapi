@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "facturas",
+  "info": {
+    "singularName": "factura",
+    "pluralName": "facturas",
+    "displayName": "Facturas",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "private": true
+    },
+    "descripcion": {
+      "type": "text",
+      "private": true
+    },
+    "Total": {
+      "type": "decimal",
+      "private": true
+    },
+    "Prepago": {
+      "type": "decimal",
+      "private": true
+    },
+    "factura": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "private": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Contacto": {
+      "type": "string",
+      "private": true
+    }
+  }
+}
