@@ -482,8 +482,10 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
         'normal',
         'vegano',
         'vegetariano',
-        'al\u00E9rgico a los frutos secos',
-        'al\u00E9rgico al marisco y/o crust\u00E1ceos',
+        'alergia a los frutos secos',
+        'alergia al marisco y/o crust\u00E1ceos',
+        'alergia a la fruta cruda',
+        'alergia a la fruta cruda y marisco (solo crust\u00E1ceos, s\u00ED come moluscos)',
       ]
     > &
       Schema.Attribute.Private &

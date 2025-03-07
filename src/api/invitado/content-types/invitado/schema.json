@@ -92,8 +92,10 @@
         "normal",
         "vegano",
         "vegetariano",
-        "alérgico a los frutos secos",
-        "alérgico al marisco y/o crustáceos"
+        "alergia a los frutos secos",
+        "alergia al marisco y/o crustáceos",
+        "alergia a la fruta cruda",
+        "alergia a la fruta cruda y marisco (solo crustáceos, sí come moluscos)"
       ],
       "default": "normal",
       "private": true
