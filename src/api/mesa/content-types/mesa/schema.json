@@ -22,29 +22,37 @@
       "mappedBy": "mesa"
     },
     "himno": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "imagen": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "capitan": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::invitado.invitado"
+    },
+    "grupos_origen": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::grupo-origen.grupo-origen",
+      "inversedBy": "mesas"
     }
   }
 }

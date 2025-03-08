@@ -431,6 +431,7 @@ export interface ApiGrupoOrigenGrupoOrigen extends Struct.CollectionTypeSchema {
       'api::grupo-origen.grupo-origen'
     > &
       Schema.Attribute.Private;
+    mesas: Schema.Attribute.Relation<'manyToMany', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -526,6 +527,10 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    grupos_origen: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::grupo-origen.grupo-origen'
+    >;
     himno: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imagen: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',

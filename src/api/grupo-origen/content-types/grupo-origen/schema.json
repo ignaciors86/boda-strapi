@@ -34,6 +34,12 @@
     },
     "descripcion": {
       "type": "text"
+    },
+    "mesas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mesa.mesa",
+      "mappedBy": "grupos_origen"
     }
   }
 }
