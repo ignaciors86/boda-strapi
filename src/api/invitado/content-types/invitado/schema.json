@@ -96,7 +96,8 @@
         "alergia al marisco y/o crustáceos",
         "alergia a la fruta cruda",
         "alergia a la fruta cruda y marisco (solo crustáceos, sí come moluscos)",
-        "alimentación antiinflamatoria. No ajo, cebolla, gluten, lactosa, fritos... Sí carne magra o pescado/marisco a la plancha/brasa/horno; calabacín, patata, arroz..."
+        "alimentación antiinflamatoria. No ajo, cebolla, gluten, lactosa, fritos... Sí carne magra o pescado/marisco a la plancha/brasa/horno; calabacín, patata, arroz...",
+        "alergia al gluten"
       ],
       "default": "normal",
       "private": true
