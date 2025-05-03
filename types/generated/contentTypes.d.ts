@@ -488,6 +488,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
         'alergia a la fruta cruda',
         'alergia a la fruta cruda y marisco (solo crust\u00E1ceos, s\u00ED come moluscos)',
         'alimentaci\u00F3n antiinflamatoria. No ajo, cebolla, gluten, lactosa, fritos... S\u00ED carne magra o pescado/marisco a la plancha/brasa/horno; calabac\u00EDn, patata, arroz...',
+        'men\u00FA cel\u00EDaco',
       ]
     > &
       Schema.Attribute.Private &
