@@ -53,6 +53,9 @@
       "relation": "manyToMany",
       "target": "api::grupo-origen.grupo-origen",
       "inversedBy": "mesas"
+    },
+    "descripcion": {
+      "type": "text"
     }
   }
 }

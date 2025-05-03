@@ -529,6 +529,7 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text;
     grupos_origen: Schema.Attribute.Relation<
       'manyToMany',
       'api::grupo-origen.grupo-origen'
