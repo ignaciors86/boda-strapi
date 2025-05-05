@@ -55,6 +55,11 @@ export default {
           socket.broadcast.emit('kudo', data);
         });
 
+        socket.on('galerias', (data) => {
+          console.log('Galerías recibido:', data);
+          socket.broadcast.emit('galerias', data);
+        });
+
         socket.on('disconnect', () => {
           console.log('Cliente desconectado:', socket.id);
         });

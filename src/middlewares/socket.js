@@ -1,7 +1,18 @@
 module.exports = (io) => {
   io.on('connection', (socket) => {
+    // Unirse a una room específica
+    socket.on('joinRoom', (room) => {
+      socket.join(room);
+    });
+
     socket.on('kudo', (kudo) => {
-      socket.broadcast.emit('kudo', kudo);
+      // Si el kudo tiene room, emitir solo a esa room
+      if (kudo.room) {
+        socket.to(kudo.room).emit('kudo', kudo);
+      } else {
+        // Compatibilidad: emitir globalmente si no hay room
+        socket.broadcast.emit('kudo', kudo);
+      }
     });
 
     socket.on('cambiar-coleccion', (data) => {
