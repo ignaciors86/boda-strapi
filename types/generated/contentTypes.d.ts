@@ -544,6 +544,7 @@ export interface ApiMesaMesa extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::mesa.mesa'> &
       Schema.Attribute.Private;
+    mapaMesasData: Schema.Attribute.JSON;
     nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
