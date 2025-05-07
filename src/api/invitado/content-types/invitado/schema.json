@@ -104,7 +104,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invitado.invitado",
-      "private": true
+      "private": false
     },
     "hijos": {
       "type": "relation",
