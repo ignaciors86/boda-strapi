@@ -452,12 +452,10 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    alergias: Schema.Attribute.Text & Schema.Attribute.Private;
-    alojamiento: Schema.Attribute.Boolean & Schema.Attribute.Private;
-    asistira: Schema.Attribute.Boolean &
-      Schema.Attribute.Private &
-      Schema.Attribute.DefaultTo<false>;
-    autobus: Schema.Attribute.Boolean & Schema.Attribute.Private;
+    alergias: Schema.Attribute.Text;
+    alojamiento: Schema.Attribute.Boolean;
+    asistira: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    autobus: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -492,7 +490,6 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
         'infantil',
       ]
     > &
-      Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'normal'>;
     mesa: Schema.Attribute.Relation<'manyToOne', 'api::mesa.mesa'>;
     nombre: Schema.Attribute.String;
@@ -504,8 +501,8 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::personaje.personaje'
     >;
-    postboda: Schema.Attribute.Boolean & Schema.Attribute.Private;
-    preboda: Schema.Attribute.Boolean & Schema.Attribute.Private;
+    postboda: Schema.Attribute.Boolean;
+    preboda: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

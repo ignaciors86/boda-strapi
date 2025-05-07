@@ -31,8 +31,7 @@
     "asistira": {
       "pluginOptions": {},
       "type": "boolean",
-      "default": false,
-      "private": true
+      "default": false
     },
     "imagen": {
       "type": "media",
@@ -59,20 +58,16 @@
       "private": true
     },
     "preboda": {
-      "type": "boolean",
-      "private": true
+      "type": "boolean"
     },
     "postboda": {
-      "type": "boolean",
-      "private": true
+      "type": "boolean"
     },
     "autobus": {
-      "type": "boolean",
-      "private": true
+      "type": "boolean"
     },
     "alergias": {
-      "type": "text",
-      "private": true
+      "type": "text"
     },
     "espiga": {
       "type": "integer",
@@ -83,8 +78,7 @@
       "type": "text"
     },
     "alojamiento": {
-      "type": "boolean",
-      "private": true
+      "type": "boolean"
     },
     "menu": {
       "type": "enumeration",
@@ -100,8 +94,7 @@
         "menú celíaco",
         "infantil"
       ],
-      "default": "normal",
-      "private": true
+      "default": "normal"
     },
     "weedding": {
       "type": "boolean",
