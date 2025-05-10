@@ -34,6 +34,9 @@
     },
     "descripcion": {
       "type": "text"
+    },
+    "imagen_url": {
+      "type": "string"
     }
   }
 }

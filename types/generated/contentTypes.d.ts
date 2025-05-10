@@ -566,6 +566,7 @@ export interface ApiPersonajePersonaje extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     descripcion: Schema.Attribute.Text;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagen_url: Schema.Attribute.String;
     invitados: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
