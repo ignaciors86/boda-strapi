@@ -103,14 +103,16 @@
     "padres": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::invitado.invitado",
-      "private": false
+      "target": "api::invitado.invitado"
     },
     "hijos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invitado.invitado",
       "private": true
+    },
+    "imagen_url": {
+      "type": "string"
     }
   }
 }

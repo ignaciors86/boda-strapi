@@ -470,6 +470,7 @@ export interface ApiInvitadoInvitado extends Struct.CollectionTypeSchema {
     hijos: Schema.Attribute.Relation<'oneToMany', 'api::invitado.invitado'> &
       Schema.Attribute.Private;
     imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagen_url: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
